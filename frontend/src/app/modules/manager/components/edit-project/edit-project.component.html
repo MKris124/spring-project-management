@@ -1,0 +1,23 @@
+<h1>Update Project Phase</h1>
+<div class="form-container">
+  <form (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label for="phase">Phase</label>
+      <mat-form-field appearance="fill">
+        <mat-select [(ngModel)]="newPhase" name="phase" required>
+          <mat-option value="ÉRDEKLŐDÉS">Érdeklődés</mat-option>
+          <mat-option value="MINŐSÍTÉS">Minősítés</mat-option>
+          <mat-option value="AJÁNLATADÁS">Ajánlatadás</mat-option>
+          <mat-option value="MEGRENDELÉS">Megrendelés</mat-option>
+          <mat-option value="KIVITELEZÉS">Kivitelezés</mat-option>
+          <mat-option value="LEZÁRT">Lezárt</mat-option>
+          <mat-option value="ELVESZTETT">Elvesztett</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-button type="submit" class="save-btn">Save</button>
+    </div>
+  </form>
+</div>

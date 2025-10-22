@@ -1,0 +1,53 @@
+<div *ngIf="!isAdminLoggedIn && !isManagerLoggedIn && !isEmployeeLoggedIn && !isCustomerLoggedIn" >
+  <nav class="navbar">
+    <div class="navbar-brand">Project Management</div>
+    <div class="navbar-links">
+      <a routerLink="/public/home" routerLinkActive="active" class="nav-link">Home</a>
+      <a routerLink="/signup" routerLinkActive="active" class="nav-link">Register</a>
+      <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
+    
+    </div>
+  </nav>
+</div>
+<div *ngIf="isAdminLoggedIn">
+  <nav class="navbar">
+    <div class="navbar-brand">Admin</div>
+    <div class="navbar-links">
+      <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a>
+      <a (click)="logout()" routerLink="" routerLinkActive="active" class="nav-link">Logout</a>
+    </div>
+  </nav>
+</div>
+<div *ngIf="isManagerLoggedIn">
+  <nav class="navbar">
+    <div class="navbar-brand">Manager</div>
+    <div class="navbar-links">
+      <a routerLink="/manager/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a>
+      <a routerLink="/manager/add-project" routerLinkActive="active" class="nav-link">Add Project</a>
+      <a (click)="logout()" routerLink="" routerLinkActive="active" class="nav-link">Logout</a>
+    
+    </div>
+  </nav>
+</div>
+<div *ngIf="isEmployeeLoggedIn">
+  <nav class="navbar">
+    <div class="navbar-brand">Employee</div>
+    <div class="navbar-links">
+      <a routerLink="/employee/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a>
+      <a (click)="logout()" routerLink="" routerLinkActive="active" class="nav-link">Logout</a>
+    
+    </div>
+  </nav>
+</div>
+<div *ngIf="isCustomerLoggedIn">
+  <nav class="navbar">
+   <div class="navbar-brand">Customer</div>
+    <div class="navbar-links">
+      <a routerLink="/public/home" routerLinkActive="active" class="nav-link">Home</a>
+      <a routerLink="/customer/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a>
+      <a (click)="logout()" routerLink="" routerLinkActive="active" class="nav-link">Logout</a>
+    
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>

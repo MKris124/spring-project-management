@@ -1,0 +1,26 @@
+<div class="home-container">
+  <h2>Running Projects</h2>
+  <div class="project-cards-container">
+      <div *ngFor="let project of runningProjects" class="project-card">
+          <h3>{{ project.name }}</h3>
+          <p><strong>Status:</strong> {{ project.phase }}</p>
+          <button 
+          *ngIf="project.phase === 'AJÁNLATADÁS' && !rejectedOffers.includes(project.id)"
+          class="offer-button" 
+          color="primary" 
+          (click)="placeOffer(project.id)">
+          {{ isOfferPlaced(project.id) ? 'Offer Placed' : 'Add Offer' }}
+      </button>
+      <p *ngIf="project.phase === 'AJÁNLATADÁS' && rejectedOffers.includes(project.id)" class="rejected-status">Rejected</p>
+      
+      <button 
+          *ngIf="project.phase === 'MEGRENDELÉS' && !rejectedOrders.includes(project.id)"
+          class="order-button" 
+          color="primary" 
+          (click)="placeOrder(project.id)">
+          {{ isOrderPlaced(project.id) ? 'Order Placed' : 'Place Order' }}
+      </button>
+      <p *ngIf="project.phase === 'MEGRENDELÉS' && rejectedOrders.includes(project.id)" class="rejected-status">Rejected</p>
+      </div>
+  </div>
+</div>

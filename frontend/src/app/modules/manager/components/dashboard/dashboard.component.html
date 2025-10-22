@@ -1,0 +1,61 @@
+<div class="project-cards-container">
+  <div class="project-card-list" *ngFor="let project of projects" 
+  [ngClass]="{'phase-completed': project.phase === 'LEZÁRT', 'phase-lost': project.phase === 'ELVESZTETT'}">
+    <h3 (click)="navigateToProject(project.id)">{{ project.name }}</h3>
+
+    <div class="project-details">  
+      <p><strong>Assigned Employees:</strong>
+        <span *ngFor="let employeeName of project.tasks">
+          {{ employeeName.employeeName }}
+        </span>
+      </p>
+
+      <p><strong>Status:</strong> {{ project.phase }}</p>
+    </div>
+
+    <div class="task-list">
+      <div class="task-list-item" *ngFor="let task of project.tasks"
+      [ngClass]="{'status-completed': task.status === 'TELJESÍTVE', 'status-delayed': task.status === 'ELHALASZTVA'}">
+      <a (click)="navigateToTask(task.id)" class="task-link"> 
+        <p><strong>Task: </strong>{{ task.title }}</p>
+        <p><strong>{{task.status}}</strong></p>
+        <p><strong>Due Date:</strong> {{ task.dueDate | date: 'yyyy-MM-dd' }}</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="addTask(project.id)" class="add-task-btn">Add Task</button>
+      <button (click)="deleteProject(project.id)" class="delete-btn">Delete Project</button>
+    </div>
+  </div>
+
+  <div class="project-card" *ngFor="let order of orderedProjects">
+    <h3><strong>Project: </strong>{{ order.projectName }}</h3>
+
+    <div class="project-details">
+      <p><strong>Status:</strong> Pending</p>   
+      <p><strong>Customer: </strong>{{order.customerName}}</p>
+      <p><strong>Details: </strong>{{order.orderDetails}}</p>
+    </div>
+
+    <div class="actions">
+      <button (click)="acceptOrder(order.id,order.projecId)" class="accept-order-btn">Accept Order</button>
+      <button (click)="rejectOrder(order.id, order.projectId)" class="reject-order-btn">Reject Order</button>
+    </div>
+  </div>
+  <div class="project-card" *ngFor="let offer of offers">
+    <h3><strong>Project:</strong> {{ offer.projectName }}</h3>
+
+    <div class="project-details">
+      <p><strong>Status:</strong> Pending</p>
+      <p><strong>Customer: </strong>{{offer.customerName}}</p>
+      <p><strong>Details: </strong>{{offer.offerDetails}}</p>
+    </div>
+
+    <div class="actions">
+      <button (click)="acceptOffer(offer.id, offer.projecId)" class="accept-order-btn">Accept Offer</button>
+      <button (click)="rejectOffer(offer.id, offer.projecId)" class="reject-order-btn">Reject Offer</button>
+    </div>
+  </div>
+</div>

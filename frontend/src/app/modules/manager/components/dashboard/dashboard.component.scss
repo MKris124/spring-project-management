@@ -1,0 +1,230 @@
+.project-cards-container {
+  display: flex;
+  gap: 1rem; 
+  flex-wrap: wrap;
+  align-items: start; 
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.project-card-list {
+  flex: 1 1 calc(25% - 1rem); 
+  max-width: calc(25% - 1rem);
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.project-card-list:nth-child(6n + 1) {
+  clear: left; 
+}
+
+@media (max-width: 1200px) {
+  .project-card-list {
+    flex: 1 1 calc(33.333% - 1rem); 
+    max-width: calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-card-list {
+    flex: 1 1 calc(50% - 1rem); 
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card-list {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+}
+
+
+.project-card-list h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin: 0;
+  
+}
+
+.project-card-list h3:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #f1f5f9;
+  cursor:pointer;
+}
+
+.project-details p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0.3rem 0;
+}
+.task-list{
+  max-height: 150px; 
+  overflow-y: auto; 
+  margin-top: 0.5rem;
+  padding-right: 5px;
+}
+.task-list-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.task-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #f1f5f9;
+  cursor:pointer;
+}
+
+.status-completed {
+  background-color: #e0f7e9;
+  cursor: default;
+  pointer-events: none;
+}
+
+.status-delayed {
+  background-color: #fde2e2;
+  cursor: default;
+  pointer-events: none;
+}
+
+.phase-completed .project-details,
+.phase-completed .task-list-item,
+.phase-completed .add-task-btn,
+.phase-completed  h3,
+.phase-completed .task-list-item {
+  opacity: 50%;
+  pointer-events: none;
+  cursor: default;
+}
+.phase-lost .project-details,
+.phase-lost .task-list-item,
+.phase-lost .add-task-btn,
+.phase-lost  h3,
+.phase-lost .task-list-item {
+  opacity: 50%;
+  pointer-events: none;
+  cursor: default;
+}
+
+.phase-completed .delete-btn{
+  opacity: 1;
+  pointer-events:auto;
+}
+.phase-lost .delete-btn {
+  opacity: 1;
+  pointer-events:auto;
+}
+
+
+
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.add-task-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #c62828;
+  }
+}
+.project-card {
+  flex: 1 1 calc(25% - 1rem); 
+  max-width: calc(25% - 1rem);
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.project-card:nth-child(6n + 1) {
+  clear: left; 
+}
+
+@media (max-width: 1200px) {
+  .project-card{
+    flex: 1 1 calc(33.333% - 1rem); 
+    max-width: calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    flex: 1 1 calc(50% - 1rem); 
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+}
+
+
+.project-card h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin: 0;
+  
+}
+.accept-order-btn, .reject-order-btn {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+
+.accept-order-btn {
+  background-color: #4caf50; 
+}
+
+.reject-order-btn {
+  background-color: #f44336; 
+}
+
+.accept-order-btn:hover {
+  background-color: #388e3c; 
+}
+
+.reject-order-btn:hover {
+  background-color: #d32f2f; 
+}

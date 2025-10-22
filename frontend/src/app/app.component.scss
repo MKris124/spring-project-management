@@ -1,0 +1,38 @@
+/* Navbar alapszintű stílusa */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000; /* Az elem előre hozása */
+    position: relative; /* Pozíció beállítása, hogy a z-index működjön */
+  }
+  
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-links .nav-link {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #0056b3; /* Kicsit sötétebb árnyalat a gombokhoz */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-links .nav-link:hover {
+    background-color: #004085; /* Még sötétebb háttér, amikor az egér fölé megy */
+  }
+  
+  

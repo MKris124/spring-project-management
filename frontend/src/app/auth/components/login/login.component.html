@@ -1,0 +1,30 @@
+<div class="form-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small class="error-message">Please enter a valid email.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input [type]="passwordVisible ? 'text' : 'password'" id="password" formControlName="password" placeholder="Enter your password" />
+        <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+          <fa-icon [icon]="passwordVisible ? faEyeSlash : faEye"></fa-icon>
+        </button>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <small class="error-message">Password is required.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="loginForm.invalid" (click)="onLoginSubmit()">Login</button>
+      <p>
+        Don't have an account? 
+        <a href="/signup" routerLink="/signup" routerLinkActive="active">Sign Up</a>
+      </p>
+    </form>
+  </div>
+  

@@ -1,0 +1,24 @@
+<div class="form-container">
+  <h2>Add New Project</h2>
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="name">Project Title*</label>
+          <input type="text" id="name" formControlName="name" placeholder="Enter project title" required />
+          <div *ngIf="projectForm.get('name')?.invalid && projectForm.get('name')?.touched">
+              <small class="error-message">Project title is required.</small>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="phase">Phase*</label>
+          <select id="phase" formControlName="phase" required>
+              <option *ngFor="let phase of projectPhases" [value]="phase">{{ phase }}</option>
+          </select>
+          <div *ngIf="projectForm.get('phase')?.invalid && projectForm.get('phase')?.touched">
+              <small class="error-message">Phase is required.</small>
+          </div>
+      </div>
+
+      <button type="submit" [disabled]="projectForm.invalid">Save Project</button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+<div class="form-container">
+  <h2>Place a New Order</h2>
+  <form [formGroup]="orderForm" (ngSubmit)="placeOrder()">
+      <div class="form-group">
+          <label for="orderDetails">Order Details</label>
+          <textarea 
+              id="orderDetails" 
+              formControlName="orderDetails" 
+              rows="3" 
+              placeholder="Add your order details here..." 
+              required>
+          </textarea>
+          <div *ngIf="orderForm.get('orderDetails')?.invalid && orderForm.get('orderDetails')?.touched">
+              <small class="error-message">Order details are required.</small>
+          </div>
+      </div>
+      <div class="actions">
+          <button mat-button type="submit" class="submit-btn" [disabled]="orderForm.invalid">Place Order</button>
+      </div>
+  </form>
+</div>

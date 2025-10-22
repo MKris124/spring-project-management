@@ -1,0 +1,55 @@
+<div class="role-management-container">
+    <h2>Employees</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>
+            <select [(ngModel)]="employee.role">
+              <option value="PROJECT_MANAGER">Project Manager</option>
+              <option value="USER">User</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="updateRole(employee.id, employee.role)">Update Role</button>
+            <button (click)="resetPassword(employee.id, newPasswords[employee.id])">Reset Password</button>
+            <input
+              type="password"
+              [(ngModel)]="newPasswords[employee.id]"
+              placeholder="New Password"
+            />
+            <button (click)="deleteUser(employee.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Customers</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.role }}</td>
+          <button (click)="deleteUser(customer.id)">Delete</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

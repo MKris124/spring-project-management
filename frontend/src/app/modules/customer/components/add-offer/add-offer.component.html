@@ -1,0 +1,19 @@
+<div class="form-container">
+    <h2>Add New Offer</h2>
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group">
+            <label for="offerDetails">Offer Details</label>
+            <textarea id="offerDetails" formControlName="offerDetails" rows="3" placeholder="Add your offer details here..." required></textarea>
+            <div *ngIf="offerForm.get('offerDetails')?.invalid && offerForm.get('offerDetails')?.touched">
+              <small class="error-message">Offer details are required.</small>
+            </div>
+          </div>
+  
+        
+        <div class="actions">
+            <button mat-button type="submit" class="save-btn" [disabled]="offerForm.invalid">Save Offer</button>
+        </div>
+    </form>
+  </div>
+  

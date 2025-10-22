@@ -1,0 +1,19 @@
+<h1>Update Task Status</h1>
+<div class="form-container">
+  <form (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label for="status">Status</label>
+      <mat-form-field appearance="fill">
+        <mat-select [(ngModel)]="newStatus" name="status" required>
+          <mat-option value="FOLYAMATBAN">Folyamatban</mat-option>
+          <mat-option value="TELJESÍTVE">Teljesítve</mat-option>
+          <mat-option value="ELHALASZTVA">Elhalasztva</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-button type="submit" class="save-btn">Save</button>
+    </div>
+  </form>
+</div>
